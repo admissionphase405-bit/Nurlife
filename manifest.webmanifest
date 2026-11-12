@@ -1,0 +1,25 @@
+{
+  "name": "NurLife \u2014 My Islamic Student Companion",
+  "short_name": "NurLife",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#f6f3ec",
+  "theme_color": "#849982",
+  "description": "A gentle Islamic student companion for prayer, study and daily routines.",
+  "icons": [
+    {
+      "src": "./icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "./icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}

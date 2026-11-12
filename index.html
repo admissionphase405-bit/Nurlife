@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#849982">
+<meta name="description" content="NurLife is a gentle Islamic student companion for prayer, study, daily routines and spiritual growth.">
+<title>NurLife — My Islamic Student Companion</title>
+<link rel="manifest" href="./manifest.webmanifest">
+<link rel="icon" href="./icons/icon-192.png">
+<link rel="apple-touch-icon" href="./icons/icon-192.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Nunito:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f6f3ec;--paper:#fffefa;--ink:#344238;--muted:#788278;--sage:#849982;--sage2:#e8eee6;--line:#e7e8df;--gold:#b89a5a;--rose:#f7e9e7;--shadow:0 8px 28px rgba(55,72,57,.055)}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--ink);font-family:Nunito,Arial,sans-serif;min-height:100vh;padding-bottom:30px}
+body.dark{--bg:#17221b;--paper:#233128;--ink:#edf1e9;--muted:#b7c1b5;--sage:#9bb49a;--sage2:#34483a;--line:#405145;--gold:#d3b777;--rose:#493536;--shadow:0 8px 28px rgba(0,0,0,.16)}
+button,input,textarea{font:inherit}button{cursor:pointer}.wrap{width:min(100% - 32px,620px);margin:auto}
+header{padding:25px 0 10px}.top{display:flex;justify-content:space-between;align-items:center;gap:10px}.brandline{color:var(--sage);font-size:11px;letter-spacing:.2em;text-transform:uppercase;font-weight:800}.brand{font:700 35px "Playfair Display",Georgia,serif;margin:3px 0 0}.subtitle{font-size:12px;color:var(--muted);margin-top:3px}.top-actions{display:flex;gap:7px}.iconbtn{width:42px;height:42px;border:1px solid var(--line);border-radius:15px;background:var(--paper);color:var(--ink);font-size:18px}
+nav{display:flex;gap:7px;overflow:auto;padding:12px 0 7px;scrollbar-width:none}nav::-webkit-scrollbar{display:none}nav a{white-space:nowrap;text-decoration:none;background:var(--sage2);color:var(--ink);border-radius:30px;padding:9px 14px;font-size:12px;font-weight:800}
+main{display:grid;gap:14px}.card{background:var(--paper);border:1px solid rgba(125,145,123,.10);border-radius:21px;padding:17px;box-shadow:var(--shadow)}
+.row{display:flex;justify-content:space-between;align-items:center;gap:10px}.eyebrow{font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--sage);font-weight:900}.heading{font-size:16px;font-weight:900;margin:0}.muted{color:var(--muted)}.tiny{font-size:11px}.small{font-size:13px}.display{font:700 42px "Playfair Display",Georgia,serif;line-height:1}.btn{border:0;border-radius:12px;background:var(--sage);color:white;padding:10px 14px;font-size:12px;font-weight:900}.btn.soft{background:var(--sage2);color:var(--ink)}.btn.text{background:transparent;color:var(--sage);padding:6px}
+.ayah{background:linear-gradient(135deg,var(--sage2),var(--paper));position:relative;overflow:hidden}.ayah:after{content:"۞";position:absolute;right:8px;top:-22px;font:100px Amiri;color:var(--sage);opacity:.12}.arabic{font: bold 29px/1.9 Amiri,serif;text-align:right;direction:rtl;margin:10px 0;color:var(--ink)}.meaning{font-size:14px;line-height:1.7}.ref{font-size:11px;color:var(--sage);font-weight:900;margin-top:9px}.card-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
+.progress{height:7px;border-radius:20px;background:var(--line);overflow:hidden}.bar{height:100%;background:var(--sage);border-radius:20px;transition:width .3s}.tasklist{display:grid;gap:8px}.task{display:flex;gap:11px;align-items:flex-start;padding:11px 12px;border-radius:14px;background:var(--bg)}.task input,.check input{width:18px;height:18px;accent-color:var(--sage);flex:none;margin:1px 0 0}.task.done{opacity:.58}.task.done .taskname{text-decoration:line-through}.taskbody{min-width:0}.time{font-size:10px;font-weight:900;color:var(--sage);letter-spacing:.03em}.taskname{font-size:13px;font-weight:800;margin-top:2px}
+.prayers{display:grid;grid-template-columns:repeat(5,1fr);gap:6px}.prayer{border:1px solid var(--line);border-radius:12px;background:var(--bg);color:var(--ink);padding:10px 2px;font-size:10px;font-weight:900}.prayer.ontime{background:#dcebe0;color:#315a3c;border-color:#a8c8af}.prayer.qada{background:#f5ead6;color:#795e30;border-color:#dfc997}
+.note{background:var(--rose);border-radius:14px;padding:12px;color:var(--ink);font-size:12px;line-height:1.6;margin-top:12px}.hidden{display:none!important}
+.habits{display:grid;grid-template-columns:1fr 1fr;gap:8px}.habit{padding:10px;background:var(--bg);border-radius:12px;font-size:12px;display:flex;gap:8px;align-items:flex-start}.habit input{accent-color:var(--sage);width:16px;height:16px;flex:none}
+textarea,input[type=text],input[type=date]{width:100%;border:1px solid var(--line);border-radius:12px;background:var(--bg);color:var(--ink);padding:11px;font-size:13px;outline:none}textarea{resize:vertical}
+.finish{background:linear-gradient(140deg,var(--sage2),var(--paper));text-align:center}.finish-icon{font-size:32px}.finish-title{font:700 25px "Playfair Display",Georgia,serif;margin:5px 0}.finish-msg{font-size:13px;line-height:1.6;color:var(--muted)}.finish-checks{display:grid;gap:8px;text-align:left;margin-top:14px}.check{display:flex;gap:9px;align-items:center;font-size:12px;padding:8px 10px;border-radius:11px;background:var(--bg)}
+.goal{display:flex;gap:9px;align-items:center;border-bottom:1px solid var(--line);padding:9px 0;font-size:13px}.goal:last-child{border:0}.goal span{flex:1}.goal input{accent-color:var(--sage)}
+.actions{display:flex;gap:8px;flex-wrap:wrap}.footer{text-align:center;padding:14px 0 22px;color:var(--muted);font-size:11px;line-height:1.8}
+.modal{position:fixed;inset:0;background:#0007;display:grid;place-items:center;padding:18px;z-index:9}.modalbox{width:min(100%,430px);background:var(--paper);color:var(--ink);padding:20px;border-radius:20px;box-shadow:var(--shadow)}.modalbox h2{margin-top:0}.modalbox p{font-size:13px;line-height:1.65;color:var(--muted)}
+@media(min-width:520px){.card{padding:20px}.wrap{width:min(100% - 44px,620px)}}
+</style>
+</head>
+<body>
+<header class="wrap">
+ <div class="top">
+  <div><div class="brandline">Bismillah · Begin with intention</div><h1 class="brand">✦ NurLife</h1><div class="subtitle">Your Islamic Student Companion</div></div>
+  <div class="top-actions"><button class="iconbtn" id="installBtn" aria-label="Install app" title="Install app">⇩</button><button class="iconbtn" id="themeBtn" aria-label="Toggle dark mode">☾</button></div>
+ </div>
+ <nav><a href="#home">Home</a><a href="#routine">My Routine</a><a href="#prayers">Prayers</a><a href="#habits">Good Deeds</a><a href="#finish">Daily Finish</a></nav>
+</header>
+<main class="wrap" id="home">
+ <section class="card row">
+  <div><div class="eyebrow">Today</div><div class="heading" id="todayDate">Your day, with purpose</div><div class="tiny muted" id="todayGreeting">One step at a time.</div></div>
+  <div style="text-align:right"><div class="eyebrow">Exam countdown</div><div class="display" id="daysLeft">--</div><button class="btn text" id="editExam">Set exam date</button></div>
+ </section>
+ <section class="card ayah">
+  <div class="eyebrow">A verse for your heart · Daily ayah</div>
+  <div class="arabic" id="ayahArabic"></div>
+  <div class="meaning" id="ayahMeaning"></div>
+  <div class="ref" id="ayahRef"></div>
+  <div class="tiny muted" style="margin-top:8px">Let the meaning guide your day. Read the full ayah in a trusted Qur’an translation for context.</div>
+ </section>
+ <section class="card">
+  <div class="row"><div><div class="heading">Period Mode</div><div class="tiny muted" id="periodStatus">Normal day · prayer routine visible</div></div><label style="display:flex;gap:8px;align-items:center;font-size:12px"><input id="periodToggle" type="checkbox" style="width:19px;height:19px;accent-color:var(--sage)"> On</label></div>
+  <div class="note hidden" id="periodNote">Period-day schedule is active. Salah and fasting are paused during menstruation. You can still make dua, do dhikr and istighfar, send salawat, listen to Qur’an, give charity and learn beneficial knowledge. Rest without guilt.</div>
+ </section>
+ <section class="card" id="prayers">
+  <div class="card-head"><h2 class="heading">Namaz Tracker</h2><b class="tiny" id="prayerCount" style="color:var(--sage)">0/5 marked</b></div>
+  <div class="prayers" id="prayerButtons"></div>
+  <div class="tiny muted" style="margin:10px 0 7px">Tap each prayer to cycle through: Not marked → On time → Qada.</div><div class="progress"><div class="bar" id="prayerBar"></div></div>
+ </section>
+ <section class="card" id="routine">
+  <div class="card-head"><div><h2 class="heading">My Daily Routine</h2><div class="tiny muted" id="routineLabel">Your normal-day schedule</div></div><b class="tiny" id="routineProgress" style="color:var(--sage)">0%</b></div>
+  <div class="progress" style="margin-bottom:13px"><div class="bar" id="routineBar"></div></div>
+  <div class="tasklist" id="routineTasks"></div>
+ </section>
+ <section class="card" id="habits">
+  <div class="card-head"><h2 class="heading">Good Deeds & Student Habits</h2><span class="tiny muted" id="habitProgress">0 done</span></div>
+  <div class="habits" id="habitTasks"></div>
+ </section>
+ <section class="card">
+  <h2 class="heading" style="margin-bottom:10px">My Long-Term Goals</h2><div id="goals"></div>
+  <div class="row" style="margin-top:10px"><input id="goalInput" type="text" placeholder="Add a goal..."><button class="btn" id="addGoal">Add</button></div>
+ </section>
+ <section class="card">
+  <h2 class="heading" style="margin-bottom:10px">A gentle reminder</h2><div class="note" id="reminderText" style="margin:0"></div>
+ </section>
+ <section class="card">
+  <h2 class="heading" style="margin-bottom:9px">My daily reflection</h2>
+  <textarea id="dailyNote" rows="3" placeholder="What went well today? What do I want to improve tomorrow?"></textarea>
+  <div class="tiny muted" style="margin-top:6px">Saved automatically on this device.</div>
+ </section>
+ <section class="card finish" id="finish">
+  <div class="finish-icon" id="finishIcon">🌿</div><div class="eyebrow">Your end-of-day check-in</div>
+  <h2 class="finish-title" id="finishTitle">Keep going, one step at a time</h2>
+  <div class="finish-msg" id="finishMessage">Your day is made of small efforts. Check your routine below, then close the day with gratitude.</div>
+  <div class="progress" style="margin:14px 0 7px"><div class="bar" id="finishBar"></div></div>
+  <div class="tiny muted" id="finishCount">0 of 0 routine tasks completed</div>
+  <div class="finish-checks" id="finishChecks"></div>
+  <button class="btn soft" id="resetDay" style="margin-top:14px">Start a new day checklist</button>
+ </section>
+ <section class="card">
+  <div class="card-head"><h2 class="heading">Backup & App Help</h2></div>
+  <div class="actions"><button class="btn soft" id="exportBtn">Export my backup</button><button class="btn soft" id="importBtn">Import backup</button><button class="btn soft" id="installHelp">Install help</button></div>
+  <input type="file" id="importFile" accept="application/json" class="hidden">
+  <p class="tiny muted" style="line-height:1.6;margin:11px 0 0">Your checklists and notes are saved in this browser. Export a backup before changing phones or clearing browser data.</p>
+ </section>
+</main>
+<div class="footer wrap">اللَّهُمَّ بَارِكْ لِي فِي وَقْتِي<br>May Allah place barakah in your time. ♡</div>
+<div class="modal hidden" id="helpModal"><div class="modalbox"><div class="row"><h2>Install NurLife on your home screen</h2><button class="btn text" id="closeHelp">✕</button></div><p><b>First:</b> the complete app package must be uploaded to an HTTPS website. Opening index.html from Downloads (a file:// address) cannot install a Progressive Web App.</p><p><b>Then on Android Chrome:</b><br>1. Open your HTTPS NurLife website.<br>2. Tap Chrome’s ⋮ menu.<br>3. Choose <b>Install app</b> or <b>Add to Home screen</b>.<br>4. Confirm the installation.</p><p>If the install button at the top becomes active, you can use that too. If Chrome does not offer installation, check that all package files were uploaded together and that the site opens with https://.</p><button class="btn" id="okHelp">Got it</button></div></div>
+<script>
+(()=>{
+const $=id=>document.getElementById(id);
+const keyDate=()=>{let d=new Date();return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`};
+const get=(k,f)=>{try{let x=localStorage.getItem(k);return x===null?f:JSON.parse(x)}catch{return f}};
+const put=(k,v)=>localStorage.setItem(k,JSON.stringify(v));
+const normal=[
+["4:30–5:15","Wake up + Fajr + short rest"],["5:15–6:30","Rest / get ready"],["6:30–7:00","Breakfast"],["7:00–9:00","New Topic 1 (2 hours)"],["9:00–10:00","Break"],["10:00–12:00","New Topic 2 (2 hours)"],["12:00–12:45","Revision"],["12:45–1:15","Dhuhr + short rest / lunch"],["1:15–2:00","Break"],["2:00–2:50","GKE"],["3:00–5:00","New Topic 3 (2 hours)"],["5:00–5:30","Break"],["5:30–6:00","Asr"],["6:00–6:50","Revision"],["6:50–7:20","Maghrib"],["7:20–7:50","Practice"],["8:00–8:50","GKE"],["8:50–9:20","Isha"],["9:20–10:00","Break"],["10:00–12:00","Practice (2 hours)"],["After 12:00","Light night routine + sleep"]];
+const period=[
+["5:00–6:30","Wake up + rest (no Fajr)"],["6:30–7:00","Breakfast"],["7:00–9:00","New Topic 1 (2 hours)"],["9:00–10:00","Break + rest"],["10:00–12:00","New Topic 2 (2 hours)"],["12:00–1:00","Revision"],["1:00–2:00","Long break + lunch + rest"],["2:00–2:50","GKE"],["3:00–5:00","New Topic 3 (2 hours)"],["5:00–6:00","Long break + rest"],["6:00–6:50","Revision"],["6:50–7:50","Rest / light activity"],["8:00–8:50","GKE"],["8:50–10:00","Long break + rest"],["10:00–12:00","Practice (reduce if low energy)"],["After 12:00","Early rest + sleep"]];
+const prayers=["Fajr","Dhuhr","Asr","Maghrib","Isha"];
+const habits=["Qur’an / beneficial listening","Morning or evening adhkar","Istighfar & salawat","Focused study session","Revision / MCQs","Kindness & helping family","Drink enough water","Take a proper rest","Plan tomorrow"];
+const ayat=[
+{a:"فَإِنَّ مَعَ الْعُسْرِ يُسْرًا ۝ إِنَّ مَعَ الْعُسْرِ يُسْرًا",m:"So, surely with hardship comes ease. Surely with that hardship comes more ease.",r:"Surah Ash-Sharh 94:5–6"},
+{a:"لَا يُكَلِّفُ اللَّهُ نَفْسًا إِلَّا وُسْعَهَا",m:"Allah does not burden a soul beyond what it can bear.",r:"Surah Al-Baqarah 2:286"},
+{a:"وَأَن لَّيْسَ لِلْإِنسَانِ إِلَّا مَا سَعَىٰ",m:"A person will have only what they strive for.",r:"Surah An-Najm 53:39"},
+{a:"وَالَّذِينَ جَاهَدُوا فِينَا لَنَهْدِيَنَّهُمْ سُبُلَنَا",m:"Those who strive for Our cause, We will surely guide them to Our ways.",r:"Surah Al-Ankabut 29:69"},
+{a:"وَلَا تَهِنُوا وَلَا تَحْزَنُوا",m:"Do not lose heart or grieve.",r:"Surah Aal-Imran 3:139"}
+];
+let day=get('nl-day-'+keyDate(),{tasks:{},prayers:{},habits:{},note:''});
+let isPeriod=get('nl-period',false),exam=localStorage.getItem('nl-exam')||'';
+let goals=get('nl-goals',[{text:'Be consistent in worship',done:false},{text:'Grow in beneficial knowledge',done:false},{text:'Study with focus and sincerity',done:false}]);
+let installPrompt=null;
+function tasks(){return isPeriod?period:normal}
+function save(){put('nl-day-'+keyDate(),day)}
+function currentDone(){return tasks().filter((_,i)=>!!day.tasks[(isPeriod?'p':'n')+i]).length}
+function renderTasks(){
+ let box=$('routineTasks');box.replaceChildren();tasks().forEach(([time,name],i)=>{
+ let id=(isPeriod?'p':'n')+i,label=document.createElement('label');label.className='task'+(day.tasks[id]?' done':'');
+ let cb=document.createElement('input');cb.type='checkbox';cb.checked=!!day.tasks[id];cb.addEventListener('change',()=>{day.tasks[id]=cb.checked;save();renderTasks();renderFinish()});
+ let body=document.createElement('div');body.className='taskbody';let t=document.createElement('div');t.className='time';t.textContent=time;let n=document.createElement('div');n.className='taskname';n.textContent=name;body.append(t,n);label.append(cb,body);box.append(label);
+ });
+ let pct=Math.round(currentDone()/tasks().length*100);$('routineProgress').textContent=pct+'%';$('routineBar').style.width=pct+'%';$('routineLabel').textContent=isPeriod?'Period-day schedule · extra rest included':'Normal-day schedule · prayer times included';
+}
+function renderPrayers(){
+ let box=$('prayerButtons');box.replaceChildren();let count=0;
+ prayers.forEach(p=>{let s=day.prayers[p]||'';if(s)count++;let b=document.createElement('button');b.className='prayer'+(s==='On time'?' ontime':s==='Qada'?' qada':'');b.textContent=p+(s?' ✓':'');b.title=s||'Not marked';b.addEventListener('click',()=>{let opts=['','On time','Qada'];day.prayers[p]=opts[(opts.indexOf(day.prayers[p]||'')+1)%3];save();renderPrayers()});box.append(b)});
+ $('prayerCount').textContent=count+'/5 marked';$('prayerBar').style.width=(count/5*100)+'%';
+}
+function renderHabits(){
+ let box=$('habitTasks');box.replaceChildren();let count=0;habits.forEach((h,i)=>{let l=document.createElement('label');l.className='habit';let c=document.createElement('input');c.type='checkbox';c.checked=!!day.habits[i];if(c.checked)count++;c.addEventListener('change',()=>{day.habits[i]=c.checked;save();renderHabits()});l.append(c,document.createTextNode(h));box.append(l)});$('habitProgress').textContent=count+'/'+habits.length+' done';
+}
+function renderFinish(){
+ let total=tasks().length,done=currentDone(),pct=Math.round(done/total*100),complete=done===total;
+ $('finishBar').style.width=pct+'%';$('finishCount').textContent=done+' of '+total+' routine tasks completed';
+ $('finishIcon').textContent=complete?'🌙':'🌿';$('finishTitle').textContent=complete?'Alhamdulillah — you completed your routine!':'Keep going, one step at a time';
+ $('finishMessage').textContent=complete?'You showed up for your goals today. May Allah accept your efforts, place barakah in your time and make tomorrow even better. Take a moment to thank Allah and rest.':'You do not need a perfect day. Complete the next task gently, and remember that sincere effort matters.';
+ let checks=$('finishChecks');checks.replaceChildren();[['Routine tasks',complete],['Good deeds checklist',habits.every((_,i)=>day.habits[i])],['Daily reflection',!!(day.note||'').trim()],['Plan for tomorrow',!!day.tasks['planTomorrow']]].forEach(([txt,ok])=>{let l=document.createElement('label');l.className='check';let c=document.createElement('input');c.type='checkbox';c.checked=!!ok;c.disabled=txt==='Routine tasks';if(txt==='Plan for tomorrow')c.addEventListener('change',()=>{day.tasks.planTomorrow=c.checked;save();renderFinish()});let s=document.createElement('span');s.textContent=txt+(ok?' · complete':'');l.append(c,s);checks.append(l)});
+}
+function renderGoals(){let box=$('goals');box.replaceChildren();goals.forEach((g,i)=>{let l=document.createElement('label');l.className='goal';let c=document.createElement('input');c.type='checkbox';c.checked=!!g.done;c.addEventListener('change',()=>{goals[i].done=c.checked;put('nl-goals',goals);renderGoals()});let s=document.createElement('span');s.textContent=g.text;let d=document.createElement('button');d.className='btn text';d.textContent='Remove';d.addEventListener('click',()=>{goals.splice(i,1);put('nl-goals',goals);renderGoals()});l.append(c,s,d);box.append(l)})}
+function renderMode(){ $('periodToggle').checked=isPeriod;$('periodStatus').textContent=isPeriod?'Period day · prayer tracker hidden':'Normal day · prayer tracker visible';$('periodNote').classList.toggle('hidden',!isPeriod);$('prayers').classList.toggle('hidden',isPeriod);renderTasks();renderFinish();renderHabits();renderPrayers();$('reminderText').textContent=isPeriod?'Your worship can continue in different ways: make dua, remember Allah, listen to Qur’an and do good deeds. Rest is allowed; adjust your study load to your energy.':'Renew your intention before studying. Seek beneficial knowledge, pray within your local prayer times, and take breaks that truly refresh you.'}
+function countdown(){if(!exam){$('daysLeft').textContent='--';return}let t=new Date();t.setHours(0,0,0,0);let e=new Date(exam+'T00:00:00');$('daysLeft').textContent=Math.max(0,Math.ceil((e-t)/86400000))}
+$('todayDate').textContent=new Date().toLocaleDateString('en-GB',{weekday:'long',day:'numeric',month:'long'});$('todayGreeting').textContent='Small sincere steps can shape a beautiful day.';
+let a=ayat[Math.floor((new Date(keyDate()).getTime()/86400000))%ayat.length];$('ayahArabic').textContent=a.a;$('ayahMeaning').textContent='“'+a.m+'”';$('ayahRef').textContent=a.r;
+$('periodToggle').addEventListener('change',()=>{isPeriod=$('periodToggle').checked;put('nl-period',isPeriod);renderMode()});
+$('dailyNote').value=day.note||'';$('dailyNote').addEventListener('input',e=>{day.note=e.target.value;save();renderFinish()});
+$('editExam').addEventListener('click',()=>{let v=prompt('Enter your exam date (YYYY-MM-DD)',exam);if(v===null)return;if(!/^\d{4}-\d{2}-\d{2}$/.test(v)){alert('Please enter the date as YYYY-MM-DD.');return}exam=v;localStorage.setItem('nl-exam',exam);countdown()});
+$('addGoal').addEventListener('click',()=>{let v=$('goalInput').value.trim();if(!v)return;goals.push({text:v,done:false});put('nl-goals',goals);$('goalInput').value='';renderGoals()});
+$('goalInput').addEventListener('keydown',e=>{if(e.key==='Enter')$('addGoal').click()});
+$('resetDay').addEventListener('click',()=>{if(confirm('Clear today’s routine, prayer and habit checklists? Your goals and exam date will stay.')){day={tasks:{},prayers:{},habits:{},note:''};save();$('dailyNote').value='';renderMode()}});
+$('themeBtn').addEventListener('click',()=>{document.body.classList.toggle('dark');localStorage.setItem('nl-dark',document.body.classList.contains('dark'))});if(localStorage.getItem('nl-dark')==='true')document.body.classList.add('dark');
+$('exportBtn').addEventListener('click',()=>{let data={version:1,day,goals,isPeriod,exam};let blob=new Blob([JSON.stringify(data,null,2)],{type:'application/json'});let u=URL.createObjectURL(blob),a=document.createElement('a');a.href=u;a.download='NurLife-backup.json';a.click();URL.revokeObjectURL(u)});
+$('importBtn').addEventListener('click',()=>$('importFile').click());$('importFile').addEventListener('change',async e=>{try{let d=JSON.parse(await e.target.files[0].text());if(!d.day||!Array.isArray(d.goals))throw 0;day=d.day;goals=d.goals;isPeriod=!!d.isPeriod;exam=d.exam||'';save();put('nl-goals',goals);put('nl-period',isPeriod);localStorage.setItem('nl-exam',exam);$('dailyNote').value=day.note||'';renderMode();renderGoals();countdown();alert('Backup restored.')}catch{alert('This backup file could not be read.')}e.target.value=''});
+function showHelp(){$('helpModal').classList.remove('hidden')}$('installHelp').addEventListener('click',showHelp);$('installBtn').addEventListener('click',()=>{if(installPrompt){installPrompt.prompt();installPrompt.userChoice.then(()=>{installPrompt=null})}else showHelp()});$('closeHelp').addEventListener('click',()=>$('helpModal').classList.add('hidden'));$('okHelp').addEventListener('click',()=>$('helpModal').classList.add('hidden'));
+window.addEventListener('beforeinstallprompt',e=>{e.preventDefault();installPrompt=e;$('installBtn').style.background='var(--sage2)';$('installBtn').title='Install NurLife'});
+window.addEventListener('appinstalled',()=>{installPrompt=null;$('installBtn').textContent='✓'});
+if('serviceWorker'in navigator && location.protocol==='https:')window.addEventListener('load',()=>navigator.serviceWorker.register('./sw.js').catch(()=>{}));
+renderMode();renderGoals();countdown();
+})();
+</script>
+</body></html>
